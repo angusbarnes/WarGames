@@ -15,4 +15,4 @@ MonoBehaviour:
   TargetTag: SoldierGreen
   Speed: 5
   Health: 100
-  Damage: 10
+  Damage: 20

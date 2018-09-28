@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour {
 
     public IEnumerator WaitForDestroy()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(4.5f);
         Destroy(gameObject);
     }
 

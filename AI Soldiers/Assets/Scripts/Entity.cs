@@ -65,7 +65,6 @@ public class Entity : MonoBehaviour {
     public void DoDamage(int health)
     {
         m_Entity.Health -= health;
-        print("Damage done: " + m_Entity.Health.ToString());
     }
     #endregion
 

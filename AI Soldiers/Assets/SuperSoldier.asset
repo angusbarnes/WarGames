@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityTag: SoldierGreen
   TargetTag: SoldierRed
-  Speed: 12
-  Health: 250
-  Damage: 25
+  Speed: 25
+  Health: 500000
+  Damage: 100
