@@ -10,10 +10,9 @@ public class Soldier : Entity {
     bool facingLeft = false;
     
     public Transform firePoint;
-
-    //TODO: This needs to be implemeted in a seperate data class
+    
     public GameObject bullet;
-    public float shootCoolDown = 1f;
+    public float shootCoolDown = 0.75f;
 
     // Use this for initialization
     void Start () {
@@ -32,7 +31,6 @@ public class Soldier : Entity {
             shootCoolDown -= Time.deltaTime;
         }
 
-        //TODO: Could be farmed out to extension method
         if (rb2d.velocity.AlmostZero()) {
             anim.SetBool("Walking", false);
         } else {
@@ -65,7 +63,10 @@ public class Soldier : Entity {
         }
         Vector2 direction = new Vector2(x, y).normalized;
         rb2d.velocity = direction * speed;
-        Shoot();
+
+        if(Mathf.Abs(y) <= 3f && Mathf.Abs(x) <= 30) {
+            Shoot();
+        }
     }
 
     private void Shoot()
@@ -83,6 +84,19 @@ public class Soldier : Entity {
     {
         transform.rotation = Quaternion.Euler(new Vector2(0, amount));
         
+    }
+
+    protected override void Die()
+    {
+        if(entityTag == "Red") {
+            CombatManager.RedDeathCount++;
+        } else if(entityTag == "Green") {
+            CombatManager.GreenDeathCount++;
+        }
+
+        Debug.Log("Green: " + CombatManager.GreenDeathCount.ToString() + 
+                  " Red: " + CombatManager.RedDeathCount.ToString());
+        base.Die();
     }
 
 }

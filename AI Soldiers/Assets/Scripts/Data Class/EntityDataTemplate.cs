@@ -14,15 +14,15 @@ public class EntityDataTemplate : ScriptableObject
     public int Health;
     public int Damage;
 
-    //TODO: Implement overloads
-    public static EntityDataTemplate CreateInstance(string tag, float speed, int health)
-    {
-        EntityDataTemplate data = CreateInstance<EntityDataTemplate>();
-        data.EntityTag = tag;
-        data.Speed = speed;
-        data.Health = health;
+    //TODO: Does this need to be here
+    //public static EntityDataTemplate CreateInstance(string tag, float speed, int health)
+    //{
+    //    EntityDataTemplate data = CreateInstance<EntityDataTemplate>();
+    //    data.EntityTag = tag;
+    //    data.Speed = speed;
+    //    data.Health = health;
 
-        return data;
-    }
+    //    return data;
+    //}
 
 }

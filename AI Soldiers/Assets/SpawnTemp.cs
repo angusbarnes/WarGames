@@ -1,52 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnTemp : MonoBehaviour {
 
-    GameObject[] GreenSpawn;
-    GameObject[] RedSpawn;
+    [Space(10)]
+    [Header("Spawn Zone")]
+    public Transform[] Points;
 
-    public GameObject Green;
-    public GameObject Red;
+    [Header("Spawns")]
+    public Spawnable[] spawnables;
 
-    public int GreenCount = 0;
-    public int RedCount = 0;
+    private void OnEnable()
+    {
+        CombatManager.Clear();
+    }
 
     // Use this for initialization
     void Start () {
-        GreenSpawn = GameObject.FindGameObjectsWithTag("Respawn");
-        RedSpawn = GameObject.FindGameObjectsWithTag("Finish");
+
+        for (int i = 0; i < spawnables.Length; i++) {
+            
+            Spawnable spawn = spawnables[i];
+            for(int roll = 0; roll < spawn.rolls; roll++) {
+                if (Random.Range(0f, 1f) <= spawn.Chance) {
+                    spawn.Spawn(Points);
+                }
+            }
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.A)) {
-            Transform t = GreenSpawn[Random.Range(0, 6)].transform;
-            Instantiate(Green, t.position, Quaternion.identity);
-            GreenCount++;
-        }
-
-        if (Input.GetKeyDown(KeyCode.D)) {
-            Transform t = RedSpawn[Random.Range(0, 6)].transform;
-            Instantiate(Red, t.position, Quaternion.identity);
-            RedCount++;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            for (int i = 0; i < 10; i++) {
-                Transform t = GreenSpawn[Random.Range(0, 6)].transform;
-                Instantiate(Green, t.position, Quaternion.identity);
-                GreenCount++;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.R)) {
-            for (int i = 0; i < 10; i++) {
-                Transform t = RedSpawn[Random.Range(0, 6)].transform;
-                Instantiate(Red, t.position, Quaternion.identity);
-                RedCount++;
-            }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            SceneManager.LoadScene(0);
         }
     }
 }

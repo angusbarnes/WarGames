@@ -28,6 +28,10 @@ public class Entity : MonoBehaviour {
     public void SetEntity(EntityData entity)
     {
         m_Entity = entity;
+        health = m_Entity.Health;
+        entityTag = m_Entity.EntityTag;
+        targetTag = m_Entity.TargetTag;
+        speed = m_Entity.Speed;
     }
 
     public EntityData GetEntity()
@@ -62,9 +66,9 @@ public class Entity : MonoBehaviour {
 
     }
 
-    public void DoDamage(int health)
+    public void DoDamage(int amount)
     {
-        m_Entity.Health -= health;
+        health -= amount;
     }
     #endregion
 
@@ -79,22 +83,30 @@ public class Entity : MonoBehaviour {
 
         entityCollider = GetComponent<Collider2D>();
         rb2d = GetComponent<Rigidbody2D>();
-
-        // TODO: Ensure that when instantiating entities that we add an incremental ID
+        
         CombatManager.RegisterEntity(this, m_Entity.EntityTag);
     }
 
     protected virtual void CheckHealth()
     {
-        if (m_Entity.Health <= 0) {
-            print("Die");
-            CombatManager.RemoveEntity(entityTag, this);
-            Destroy(gameObject);
+        if (health <= 0) {
+            Die();
         }
+    }
+
+    protected virtual void Die()
+    {
+        CombatManager.RemoveEntity(entityTag, this);
+        Destroy(gameObject);
     }
 
     public override string ToString()
     {
         return "Entity: " + m_Entity.EntityTag + "("+m_Entity.Health.ToString()+")";
+    }
+
+    private void OnDestroy()
+    {
+        CombatManager.RemoveEntity(entityTag, this);
     }
 }

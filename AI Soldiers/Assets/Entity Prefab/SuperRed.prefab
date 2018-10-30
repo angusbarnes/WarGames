@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1715487615798310}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1489070187486716
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4428259770391010}
   m_Layer: 0
@@ -29,9 +29,9 @@ GameObject:
 --- !u!1 &1715487615798310
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4022924500567720}
   - component: {fileID: 212570219772100684}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 61987303378860394}
   - component: {fileID: 114894867192078848}
   m_Layer: 0
-  m_Name: SoldierRed
+  m_Name: SuperRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ GameObject:
 --- !u!4 &4022924500567720
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1715487615798310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -63,7 +63,7 @@ Transform:
 --- !u!4 &4428259770391010
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1489070187486716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -77,7 +77,7 @@ Transform:
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1715487615798310}
   m_BodyType: 0
@@ -96,7 +96,7 @@ Rigidbody2D:
 --- !u!61 &61987303378860394
 BoxCollider2D:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1715487615798310}
   m_Enabled: 1
@@ -122,7 +122,7 @@ BoxCollider2D:
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1715487615798310}
   m_Enabled: 1
@@ -139,7 +139,7 @@ Animator:
 --- !u!114 &114894867192078848
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1715487615798310}
   m_Enabled: 1
@@ -147,14 +147,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9a44bd77caad44197125e6fac9ba15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntityTemplate: {fileID: 11400000, guid: 6d71d738e68d1ec418e2289e4aebc369, type: 2}
+  EntityTemplate: {fileID: 11400000, guid: b5e4813d949ce4c429f52a6a7cdf2607, type: 2}
   firePoint: {fileID: 4428259770391010}
   bullet: {fileID: 1896791319960542, guid: 27f98034527c19b43a06955d3c5db391, type: 2}
   shootCoolDown: 1
 --- !u!212 &212570219772100684
 SpriteRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1715487615798310}
   m_Enabled: 1
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62ee1bf6a24c48747b54d95b1e60c214, type: 3}
-  m_Color: {r: 1, g: 0.15566039, b: 0.15566039, a: 1}
+  m_Color: {r: 0.46693712, g: 0, b: 0.5188679, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -196,3 +196,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

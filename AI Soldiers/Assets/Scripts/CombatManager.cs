@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour {
 
-    [Header("Stats: ")]
-    public int LiveGreenCount = 0;
-    public int LiveRedCount = 0;
-
     static Dictionary<string, List<Entity>> EntityTypes = new Dictionary<string, List<Entity>>();
+
+    public static int RedDeathCount = 0;
+    public static int GreenDeathCount = 0;
 
     public static void RegisterEntity(Entity entity, string tag)
     {
@@ -47,18 +46,12 @@ public class CombatManager : MonoBehaviour {
     public static void RemoveEntity(string flag, Entity entity)
     {
         EntityTypes[flag].Remove(entity);
-        Debug.Log(EntityTypes[flag].Count);
     }
 
-    private void LateUpdate()
+    public static void Clear()
     {
-        //Clean: This mess can surely be simpilified
-        if (EntityTypes.ContainsKey("SoldierGreen") == false ||
-            EntityTypes.ContainsKey("SoldierRed") == false)
-            return;
-
-        LiveGreenCount = EntityTypes["SoldierGreen"].Count;
-        LiveRedCount = EntityTypes["SoldierRed"].Count;
-            
+        EntityTypes.Clear();
+        RedDeathCount = 0;
+        GreenDeathCount = 0;
     }
 }
